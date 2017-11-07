@@ -6,10 +6,10 @@
  * Time: 6:16 PM
  */
 
-namespace Invigor\Crawler\Repositories;
+namespace IvanCLI\Crawler\Repositories;
 
 
-use Invigor\Crawler\Contracts\CrawlerContract;
+use IvanCLI\Crawler\Contracts\CrawlerContract;
 use Ixudra\Curl\Facades\Curl;
 
 class CurlCrawler extends CrawlerContract

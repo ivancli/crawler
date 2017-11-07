@@ -6,14 +6,11 @@
  * Time: 11:23 AM
  */
 
-namespace Invigor\Crawler\Repositories;
+namespace IvanCLI\Crawler\Repositories;
 
 
-use Illuminate\Support\Facades\Storage;
-use Invigor\Crawler\Contracts\CrawlerContract;
-use Invigor\Crawler\Contracts\CrawlerInterface;
+use IvanCLI\Crawler\Contracts\CrawlerContract;
 use Ixudra\Curl\Facades\Curl;
-use Symfony\Component\DomCrawler\Crawler;
 
 class EntranceCrawler extends CrawlerContract
 {

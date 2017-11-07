@@ -6,7 +6,7 @@
  * Time: 3:23 PM
  */
 
-namespace Invigor\Crawler\Contracts;
+namespace IvanCLI\Crawler\Contracts;
 
 
 interface CrawlerInterface

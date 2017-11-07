@@ -6,7 +6,7 @@
  * Time: 5:47 PM
  */
 
-namespace Invigor\Crawler\Contracts;
+namespace IvanCLI\Crawler\Contracts;
 
 
 abstract class CrawlerContract implements CrawlerInterface
