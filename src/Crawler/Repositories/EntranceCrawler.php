@@ -16,15 +16,15 @@ class EntranceCrawler extends CrawlerContract
 {
     /**
      * Load content
-     * @return void
+     * @return \stdClass
      */
     public function fetch()
     {
-
         $this->singleFetch($this->__domain());
         $response = $this->singleFetch($this->url);
         $this->status = $response->status;
         $this->content = $response->content;
+        return $response;
     }
 
     protected function singleFetch($url)
@@ -41,6 +41,10 @@ class EntranceCrawler extends CrawlerContract
 
         if (!is_null($this->request_data)) {
             $curler->withData($this->request_data);
+        }
+
+        if(!is_null($this->ip) && !is_null($this->port)){
+            $curler->withOption('PROXY', $this->ip)->withOption('PROXYPORT', $this->port);
         }
 
         switch ($this->request_type) {

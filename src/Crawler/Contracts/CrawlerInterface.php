@@ -26,21 +26,21 @@ interface CrawlerInterface
     /**
      * Set request type
      * @param $type
-     * @return void
+     * @return self
      */
     public function setRequestType($type);
 
     /**
      * Push header
      * @param $headers
-     * @return void
+     * @return self
      */
     public function setHeaders($headers);
 
     /**
      * set target URL
      * @param $url
-     * @return void
+     * @return self
      */
     public function setURL($url);
 
@@ -48,48 +48,48 @@ interface CrawlerInterface
      * Set proxy IP address
      * @param $ip
      * @param int $port
-     * @return void
+     * @return self
      */
     public function setProxy($ip, $port = 80);
 
     /**
      * Update content property
      * @param $content
-     * @return void
+     * @return self
      */
     public function setContent($content);
 
     /**
      * Update status property
      * @param $status
-     * @return void
+     * @return self
      */
     public function setStatus($status);
 
     /**
      * Set path to store cookies
      * @param $path
-     * @return void
+     * @return self
      */
     public function setCookiesPath($path);
 
     /**
      * Set request data
      * @param array $data
-     * @return void
+     * @return self
      */
     public function setRequestData(array $data);
 
     /**
      * Unset header array per given indexes
      * @param $indexes
-     * @return void
+     * @return self
      */
     public function unsetHeaders($indexes);
 
     /**
      * Load content
-     * @return void
+     * @return \stdClass
      */
     public function fetch();
 

@@ -35,7 +35,7 @@ abstract class CrawlerContract implements CrawlerInterface
     /**
      * Push header
      * @param $headers
-     * @return void
+     * @return self
      */
     public function setHeaders($headers)
     {
@@ -44,6 +44,7 @@ abstract class CrawlerContract implements CrawlerInterface
         } else {
             array_push($this->headers, $headers);
         }
+        return $this;
     }
 
     /**
@@ -67,80 +68,87 @@ abstract class CrawlerContract implements CrawlerInterface
     /**
      * Set request type
      * @param $type
-     * @return void
+     * @return self
      */
     public function setRequestType($type)
     {
         $this->request_type = $type;
+        return $this;
     }
 
     /**
      * set target URL
      * @param $url
-     * @return void
+     * @return self
      */
     public function setURL($url)
     {
         $this->url = $url;
+        return $this;
     }
 
     /**
      * Update content property
      * @param $content
-     * @return void
+     * @return self
      */
     public function setContent($content)
     {
         $this->content = $content;
+        return $this;
     }
 
     /**
      * Update status property
      * @param $status
-     * @return void
+     * @return self
      */
     public function setStatus($status)
     {
         $this->status = $status;
+        return $this;
     }
 
     /**
      * Set proxy IP address
      * @param $ip
      * @param int $port
-     * @return void
+     * @return self
      */
     public function setProxy($ip, $port = 80)
     {
         $this->ip = $ip;
         $this->port = $port;
+        return $this;
     }
 
     /**
      * Set path to store cookies
      * @param $path
-     * @return void
+     * @return self
      */
     public function setCookiesPath($path)
     {
         $this->cookies_path = $path;
+        return $this;
     }
 
     /**
      * Set request data
      * @param array $data
-     * @return void
+     * @return self
      */
     public function setRequestData(array $data)
     {
         $this->request_data = $data;
+        return $this;
     }
 
 
     /**
      * Unset header array per given indexes
      * @param $indexes
-     * @return void
+     * @return self
      */
     public function unsetHeaders($indexes)
     {
@@ -149,5 +157,6 @@ abstract class CrawlerContract implements CrawlerInterface
                 unset($this->headers[$index]);
             }
         }
+        return $this;
     }
 }

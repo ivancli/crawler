@@ -16,7 +16,7 @@ class CurlCrawler extends CrawlerContract
 {
     /**
      * Load content
-     * @return void
+     * @return \stdClass
      */
     public function fetch()
     {
@@ -33,6 +33,10 @@ class CurlCrawler extends CrawlerContract
 
         if (!is_null($this->request_data)) {
             $curler->withData($this->request_data);
+        }
+
+        if(!is_null($this->ip) && !is_null($this->port)){
+            $curler->withOption('PROXY', $this->ip)->withOption('PROXYPORT', $this->port);
         }
 
         switch ($this->request_type) {
@@ -55,5 +59,6 @@ class CurlCrawler extends CrawlerContract
         }
         $this->status = $response->status;
         $this->content = $response->content;
+        return $response;
     }
 }
