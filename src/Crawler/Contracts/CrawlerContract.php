@@ -24,6 +24,9 @@ abstract class CrawlerContract implements CrawlerInterface
 
     protected $cookies_path;
 
+    protected $json_request = false;
+    protected $json_response = false;
+
     protected $headers = [
         'Accept-Language: en-us',
         'User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15',
@@ -141,6 +144,26 @@ abstract class CrawlerContract implements CrawlerInterface
     public function setRequestData(array $data)
     {
         $this->request_data = $data;
+        return $this;
+    }
+
+    /**
+     * Set request data to be encoded as JSON
+     * @return self
+     */
+    public function setJsonRequest()
+    {
+        $this->json_request = true;
+        return $this;
+    }
+
+    /**
+     * Set response data to be decoded as JSON
+     * @return self
+     */
+    public function setJsonResponse()
+    {
+        $this->json_response = true;
         return $this;
     }
 

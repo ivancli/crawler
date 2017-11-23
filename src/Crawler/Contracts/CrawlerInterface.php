@@ -81,6 +81,18 @@ interface CrawlerInterface
     public function setRequestData(array $data);
 
     /**
+     * Set request data to be encoded as JSON
+     * @return self
+     */
+    public function setJsonRequest();
+
+    /**
+     * Set response data to be decoded as JSON
+     * @return self
+     */
+    public function setJsonResponse();
+
+    /**
      * Unset header array per given indexes
      * @param $indexes
      * @return self
