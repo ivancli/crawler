@@ -27,6 +27,8 @@ abstract class CrawlerContract implements CrawlerInterface
     protected $json_request = false;
     protected $json_response = false;
 
+    protected $referer;
+
     protected $headers = [
         'Accept-Language: en-us',
         'User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15',
@@ -164,6 +166,12 @@ abstract class CrawlerContract implements CrawlerInterface
     public function setJsonResponse()
     {
         $this->json_response = true;
+        return $this;
+    }
+
+    public function setReferer($referer)
+    {
+        $this->referer = $referer;
         return $this;
     }
 

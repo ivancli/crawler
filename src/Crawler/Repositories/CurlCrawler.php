@@ -26,24 +26,28 @@ class CurlCrawler extends CrawlerContract
             ->withOption("FOLLOWLOCATION", true);
 
         if (!is_null($this->cookies_path)) {
-            $curler->setCookieFile($this->cookies_path);
-            $curler->setCookieJar($this->cookies_path);
+            $curler = $curler->setCookieFile($this->cookies_path);
+            $curler = $curler->setCookieJar($this->cookies_path);
         }
 
         if (!is_null($this->request_data)) {
-            $curler->withData($this->request_data);
+            $curler = $curler->withData($this->request_data);
         }
 
         if ($this->json_request === true) {
-            $curler->asJsonRequest();
+            $curler = $curler->asJsonRequest();
         }
 
         if ($this->json_response === true) {
-            $curler->asJsonResponse();
+            $curler = $curler->asJsonResponse();
         }
 
         if (!is_null($this->ip) && !is_null($this->port)) {
-            $curler->withOption('PROXY', $this->ip)->withOption('PROXYPORT', $this->port);
+            $curler = $curler->withOption('PROXY', $this->ip)->withOption('PROXYPORT', $this->port);
+        }
+
+        if (!is_null($this->referer)) {
+            $curler = $curler->withOption('REFERER', $this->referer);
         }
 
         switch ($this->request_type) {
